@@ -29,10 +29,12 @@ clear: both;
 
 #c1 {
     background-color:#426f7c;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #c2 {
     background-color:#a4deef;
+    font-family: Arial, Helvetica, sans-serif;
     color: rgb(65, 65, 65);
 }
 
