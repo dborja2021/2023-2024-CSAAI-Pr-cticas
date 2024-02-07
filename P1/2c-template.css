@@ -28,19 +28,22 @@ clear: both;
 }
 
 #c1 {
-    background-color:#aaa;
+    background-color:#426f7c;
 }
 
 #c2 {
-    background-color:#bbb;
+    background-color:#a4deef;
+    color: rgb(65, 65, 65);
 }
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
 
 img {
-    width: 100%;
+    width: 75%;
     height: auto;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .iresponsive {
@@ -60,6 +63,9 @@ img {
     .iresponsive {
         width: 100%;
     }
+}
+.fila{
+    display:flex;
 }
 
 /* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */
