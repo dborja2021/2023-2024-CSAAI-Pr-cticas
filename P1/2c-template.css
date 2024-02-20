@@ -15,7 +15,6 @@ min-height: 500px;
 .izquierda {
 width: 25%;
 box-sizing: border-box;
-position: fixed ;
 }
 
 .derecha {
