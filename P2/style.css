@@ -90,9 +90,10 @@ button {
 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 200px) {
     body {
         font-size: 14px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
+        align-items: center;
     }
 }
 
