@@ -2,6 +2,9 @@ let tiempoTranscurrido = 0;
 let intervalo;
 let claveSecreta = [];
 
+function redirigirAPracticas() {
+    window.location.href = "https://dborja2021.github.io/2023-2024-CSAAI-Practicas/";
+}
 
 function iniciarJuego() {
     // Verificar si ya se inició el juego

@@ -10,7 +10,18 @@ body {
     background-size: cover;
     background-position: center;
 }
+#contenedor-principal {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Alinea los elementos en el centro horizontalmente */
+}
 
+#link-practicas{
+    font-size: 13px;
+    text-align: center; /* Opcional: Centra el texto de h5 */
+    color: rgb(45, 100, 172);
+    background: rgb(49, 49, 49);
+}
 table {
     width: 100%;
     border-collapse: collapse;
