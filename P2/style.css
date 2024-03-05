@@ -98,6 +98,7 @@ button {
     }
     #contenedor-principal {
         padding: 10px; /* Puedes ajustar el relleno según tus necesidades */
+        align-items: center;
     }
 }
 
