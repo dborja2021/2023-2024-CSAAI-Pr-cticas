@@ -94,11 +94,15 @@ button {
     body {
         width: auto;
         font-size: 14px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
+        justify-content: center;
         align-items: center;
+        justify-text: center;
     }
     #contenedor-principal {
         padding: 10px; /* Puedes ajustar el relleno según tus necesidades */
+        justify-content: center;
         align-items: center;
+        justify-text: center;
     }
 }
 
