@@ -41,6 +41,18 @@ td {
     border-radius: 15px;
 }
 
+.numero-tabla {
+    font-size: 25px;
+    font-family:'Courier New', Courier, monospace;
+    color: red;
+}
+
+.numero-tabla.correcto {
+    font-size: 25px;
+    font-family:'Courier New', Courier, monospace;
+    color:rgb(0, 255, 0);
+}
+
 #contador {
     font-size: 50px;
     font-family:'Courier New', Courier, monospace;

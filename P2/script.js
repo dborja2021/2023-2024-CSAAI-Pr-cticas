@@ -1,7 +1,7 @@
 let tiempoTranscurrido = 0;
 let intervalo;
-
 let claveSecreta = [];
+
 
 function iniciarJuego() {
     // Verificar si ya se inició el juego
@@ -14,6 +14,14 @@ function iniciarJuego() {
         tiempoTranscurrido += 10;
         actualizarContador();
     }, 10);
+
+    // Generar clave secreta si no existe
+    if (claveSecreta.length === 0){
+        generarClaveSecreta();
+        actualizarClaveDisplay();
+        reiniciarTabla();
+    }
+
 }
 
 function detenerJuego() {
@@ -29,8 +37,21 @@ function reiniciarJuego() {
     detenerJuego();
     tiempoTranscurrido = 0;
     actualizarContador();
+
+    // Generar una nueva clave secreta
     generarClaveSecreta();
+    reiniciarTabla();
     actualizarClaveDisplay();
+    
+}
+
+function reiniciarTabla() {
+    // Reiniciar la tabla colocando asteriscos rojos
+    const numerosTabla = document.querySelectorAll('.numero-tabla');
+    numerosTabla.forEach(numero => {
+        numero.textContent = '*';
+        numero.classList.remove('correcto');
+    });
 }
 
 function formatoDosDigitos(valor) {
@@ -38,10 +59,14 @@ function formatoDosDigitos(valor) {
 }
 
 function generarClaveSecreta() {
-    claveSecreta = Array.from({ length: 4 }, () => Math.floor(Math.random() * 10));
-    // Mostrar asteriscos en la visualización de la clave
-    claveSecretaDisplay = Array.from({ length: 4 }, () => '*');
-    actualizarClaveDisplay();
+    while (claveSecreta.length < 4) {
+        const numeroAleatorio = Math.floor(Math.random() * 10);
+
+        // Verificar si el número ya está en la claveSecreta
+        if (!claveSecreta.includes(numeroAleatorio)) {
+            claveSecreta.push(numeroAleatorio);
+        }
+    }
 }
 
 function actualizarContador() {
@@ -56,15 +81,9 @@ function actualizarContador() {
 }
 
 function actualizarClaveDisplay() {
-    // Actualizar la visualización de la clave secreta en los numero-box
-    const numeroBoxes = document.querySelectorAll('.numero-box');
-    claveSecreta.forEach((numero, index) => {
-        numeroBoxes[index].textContent = numero;
-    });
-
-    // Mostrar la clave secreta en el elemento clave-secreta
+    // Mostrar asteriscos en la visualización de la clave
     const claveSecretoElemento = document.getElementById('clave-secreta');
-    claveSecretoElemento.textContent = `Clave secreta: ${claveSecreta.join('')}`;
+    claveSecretoElemento.textContent = `Clave secreta: ****`;
 }
 
 function seleccionarNumero(numero) {
@@ -73,33 +92,38 @@ function seleccionarNumero(numero) {
         iniciarJuego();
     }
 
-    // Generar la clave secreta solo si aún no existe
-    if (claveSecreta.length === 0) {
-        generarClaveSecreta();
+    // Verificar si el numero pertenece a la clave
+    const numeroEnClave = claveSecreta.includes(numero);
+
+    // Mostrar el número en la tabla
+    if (numeroEnClave) {
+        const posicion = claveSecreta.indexOf(numero);
+        const numerosTabla = document.querySelectorAll('.numero-tabla');
+        numerosTabla[posicion].textContent = numero;
+        numerosTabla[posicion].classList.add('correcto'); // Añadir la clase correcto para cambiar el color
     }
 
-    // Verificar si el dígito pulsado está en la clave secreta
-    if (claveSecreta.includes(numero)) {
-        // Reemplazar el asterisco con el número acertado
-        const index = claveSecreta.indexOf(numero);
-        claveSecretaDisplay[index] = claveSecreta[index];
+    verificarVictoria();
+    
+}
 
-        // Actualizar la visualización de la clave
-        actualizarClaveDisplay();
-
-        // Verificar si se acertaron todos los números de la clave
-        if (!claveSecreta.includes('*')) {
-            detenerJuego();  // Detener el juego si se acertó la clave completa
-        }
+function verificarVictoria() {
+    // Verificar si la longitud de la clave secreta es igual a la cantidad de números descubiertos
+    const numerosDescubiertos = document.querySelectorAll('.numero-tabla.correcto');
+    
+    if (numerosDescubiertos.length === claveSecreta.length) {
+        // Detener el juego si la longitud es igual
+        detenerJuego();
     }
 }
+
+// Event listeners para los botones numéricos
+for (let i = 0; i <= 9; i++) {
+    const numeroBoton = document.getElementById(`numero-${i}`);
+    numeroBoton.addEventListener('click', () => seleccionarNumero(i));
+}
+
 // Event listeners para los botones
 document.getElementById('start-btn').addEventListener('click', iniciarJuego);
 document.getElementById('stop-btn').addEventListener('click', detenerJuego);
 document.getElementById('reset-btn').addEventListener('click', reiniciarJuego);
-
-// Event listeners para los números
-const numeros = document.querySelectorAll('.numero-box');
-numeros.forEach((numero, index) => {
-    numero.addEventListener('click', () => seleccionarNumero(index + 1));
-});
