@@ -92,7 +92,8 @@ button {
 
 @media only screen and (max-width: 600px) {
     body {
-        font-size: 10px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
+        width: auto;
+        font-size: 14px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
         align-items: center;
     }
 }
