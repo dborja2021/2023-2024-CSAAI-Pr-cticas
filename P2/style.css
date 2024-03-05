@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #aca5a5;
 }
 
 #botonera-container {
@@ -18,12 +18,33 @@ body {
 button {
     width: 100%;
     padding: 15px;
-    font-size: 18px;
+    font-size: 25px;
+    color: rgb(184, 184, 184);
+    background-color: rgb(56, 56, 56);
+    border-color: rgba(255, 0, 85, 0.849);
 }
 
 #display {
     font-size: 24px;
     margin-top: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 3px solid #dddddd;
+    text-align: center;
+    padding: 16px;
+    border-color: rgba(255, 0, 85, 0.849);
+    border-radius: 15px;
+}
+
+#contador {
+    font-size: 50px;
+    font-family:'Courier New', Courier, monospace;
+    color: rgb(0, 255, 0);
 }
 
 
