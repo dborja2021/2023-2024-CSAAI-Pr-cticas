@@ -96,5 +96,8 @@ button {
         font-size: 14px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
         align-items: center;
     }
+    #contenedor-principal {
+        padding: 10px; /* Puedes ajustar el relleno según tus necesidades */
+    }
 }
 
