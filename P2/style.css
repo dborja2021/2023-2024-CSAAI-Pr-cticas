@@ -10,6 +10,7 @@ body {
     background-size: cover;
     background-position: center;
 }
+
 #contenedor-principal {
     display: flex;
     flex-direction: column; /* Organiza los elementos en columna */
@@ -89,4 +90,9 @@ button {
 
 }
 
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
+    }
+}
 
