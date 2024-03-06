@@ -27,6 +27,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     background: radial-gradient(ellipse at center, #1f1f1f, #494949, #c5c5c5);
+    border-radius: 5px;
 
 }
 
@@ -82,6 +83,7 @@ button {
     color: rgb(184, 184, 184);
     background-color: rgb(56, 56, 56);
     border-color: rgba(233, 233, 233, 0.849);
+    border-radius: 10px;
     background: radial-gradient(ellipse at center, #1f1f1f, #494949, #c5c5c5);
 }
 
@@ -91,19 +93,9 @@ button {
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
     body {
-        width: auto;
         font-size: 14px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
-        justify-content: center;
-        align-items: center;
-        justify-text: center;
-    }
-    #contenedor-principal {
-        padding: 10px; /* Puedes ajustar el relleno según tus necesidades */
-        justify-content: center;
-        align-items: center;
-        justify-text: center;
     }
 }
 
