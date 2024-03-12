@@ -93,9 +93,27 @@ button {
 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
     body {
-        font-size: 14px; /* Ajusta el tamaño del texto en dispositivos más pequeños */
+        font-size: 12px;
+    }
+    #contenedor-principal {
+        flex-direction: column;
+    }
+    #botonera-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    button {
+        padding: 10px;
+        font-size: 20px;
+    }
+    #contador {
+        font-size: 40px;
+    }
+    .numero-tabla {
+        font-size: 30px;
     }
 }
+
+
 
