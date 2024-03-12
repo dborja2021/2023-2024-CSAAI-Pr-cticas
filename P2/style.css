@@ -99,12 +99,12 @@ button {
     }
     #contenedor-principal {
         flex-direction: column;
-        width: 100%;
+        width: 75%;
         margin-left: auto;
         margin-left: auto;
     }
     table{
-        width:100%;
+        width:75%;
     }
     #botonera-container {
         grid-template-columns: repeat(3, 1fr);
