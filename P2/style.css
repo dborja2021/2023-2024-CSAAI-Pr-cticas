@@ -99,9 +99,13 @@ button {
     }
     #contenedor-principal {
         flex-direction: column;
+        width: 100%;
+    }
+    table{
+        width:100%;
     }
     #botonera-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
     button {
         padding: 10px;
