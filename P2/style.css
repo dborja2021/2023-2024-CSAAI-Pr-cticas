@@ -11,7 +11,7 @@ body {
     background-position: center;
 }
 
-#contenedor-principal {
+#table-responsive {
     display: flex;
     flex-direction: column; /* Organiza los elementos en columna */
     align-items: center; /* Alinea los elementos en el centro horizontalmente */
@@ -96,7 +96,27 @@ button {
 @media only screen and (max-width: 600px) {
 
     #contenedor-principal {
-        width: 50%;
+        width: 75%;
+        margin-left: auto;
+        margin-left: auto;
+    }
+    table{
+        width:75%;
+    }
+    #botonera-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    button {
+        padding: 10px;
+        font-size: 20px;
+    }
+    #contador {
+        font-size: 40px;
+    }
+    .numero-tabla {
+        font-size: 30px;
     }
 }
+
+
 
