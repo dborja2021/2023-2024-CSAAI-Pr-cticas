@@ -96,31 +96,7 @@ button {
 
 
 
-@media only screen and (max-width: 600px) {
 
-    #contenedor-principal {
-        width: 100%;
-        margin: auto;
-    }
-    table{
-        width:100%;
-        margin: auto;
-    }
-    #botonera-container {
-        grid-template-columns: repeat(3, 1fr);
-        width: ;
-    }
-    button {
-        padding: 10px;
-        font-size: 20px;
-    }
-    #contador {
-        font-size: 40px;
-    }
-    .numero-tabla {
-        font-size: 30px;
-    }
-}
 
 
 
