@@ -11,7 +11,7 @@ body {
     background-position: center;
 }
 
-#table-responsive {
+#contenedor-principal {
     display: flex;
     flex-direction: column; /* Organiza los elementos en columna */
     align-items: center; /* Alinea los elementos en el centro horizontalmente */
@@ -96,12 +96,12 @@ button {
 @media only screen and (max-width: 600px) {
 
     #contenedor-principal {
-        width: 75%;
+        width: 100%;
         margin-left: auto;
-        margin-left: auto;
+        margin-right: auto;
     }
     table{
-        width:75%;
+        width:100%;
     }
     #botonera-container {
         grid-template-columns: repeat(3, 1fr);
