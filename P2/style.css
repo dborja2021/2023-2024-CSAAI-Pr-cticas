@@ -97,8 +97,7 @@ button {
 
     #contenedor-principal {
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
     }
     table{
         width:100%;
