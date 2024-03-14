@@ -11,36 +11,24 @@ body {
     background-position: center;
 }
 
-#contenedor-principal {
+.contenedor-principal {
+    background-color: ;
     display: flex;
     flex-direction: column; /* Organiza los elementos en columna */
     align-items: center; /* Alinea los elementos en el centro horizontalmente */
-}
-
-#link-practicas{
-    font-size: 13px;
-    text-align: center; /* Opcional: Centra el texto de h5 */
-    color: rgb(45, 100, 172);
-    background: rgb(49, 49, 49);
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: radial-gradient(ellipse at center, #1f1f1f, #494949, #c5c5c5);
+    background: radial-gradient(ellipse at center, #868686, #525252, #111111);
     border-radius: 5px;
-
 }
 
-td {
-    border: none;
-    text-align: center;
-    padding: 16px;
-    min-width: 100px;
-    min-height: 45px;
+.contenedor-clave{
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 10px;
 
 }
 
 .numero-tabla {
+    display: inline;
     width: 100%; /* Ocupa todo el ancho de la celda */
     height: 100%; /* Ocupa todo el alto de la celda */
     font-size: 35px;
@@ -49,9 +37,11 @@ td {
     font-weight: bold;
     color: red;
     background-color: rgb(22, 22, 22);
+    margin-left: 5px;
 }
 
 .numero-tabla.correcto {
+    display: inline;
     font-size: 35px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
@@ -61,6 +51,7 @@ td {
 }
 
 #contador {
+    margin-bottom: 10px;
     font-size: 50px;
     font-family: 'Courier New', Courier, monospace;
     padding: 5%;
@@ -70,7 +61,10 @@ td {
     border: none;
 }
 
-#botonera-container {
+.botonera-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -87,11 +81,20 @@ button {
     background: radial-gradient(ellipse at center, #1f1f1f, #494949, #c5c5c5);
 }
 
-#display {
-    font-size: 24px;
-    margin-top: 20px;
-
+.contenedor-link{
+    text-align: center;
 }
+
+#link-practicas{
+    margin-bottom: 10px;
+    font-size: 13px;
+    text-align: center; /* Opcional: Centra el texto de h5 */
+    color: rgb(45, 100, 172);
+    background: radial-gradient(ellipse at center, #3df818, #6bff66, #beffae);
+    border-radius: 50%;
+}
+
+
 
 @media only screen and (max-width: 600px) {
 
@@ -101,9 +104,11 @@ button {
     }
     table{
         width:100%;
+        margin: auto;
     }
     #botonera-container {
         grid-template-columns: repeat(3, 1fr);
+        width: ;
     }
     button {
         padding: 10px;

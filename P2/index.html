@@ -8,55 +8,43 @@
     <title>¡BOOM!</title>
 </head>
 <body>
-    <div class="table-responsive">
-    <div id="contenedor-principal">
-        <table>
-            <!-- Fila 1: Números -->
-            <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <td><div class="numero-tabla">*</div></td>
-                            <td><div class="numero-tabla">*</div></td>
-                            <td><div class="numero-tabla">*</div></td>
-                            <td><div class="numero-tabla">*</div></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <!-- Fila 2: Contador de tiempo -->
-            <tr>
-                <td><div id="contador"> 00.00.00</div></td>
-            </tr>
-            <!-- Fila 3: Botonera -->
-            <tr>
-                <td>
-                    <div id="botonera-container">
-                        <button id="1-btn" onclick="seleccionarNumero(1)">1</button>
-                        <button id="2-btn" onclick="seleccionarNumero(2)">2</button>
-                        <button id="3-btn" onclick="seleccionarNumero(3)">3</button>
-                        <button id="4-btn" onclick="seleccionarNumero(4)">4</button>
-                        <button id="5-btn" onclick="seleccionarNumero(5)">5</button>
-                        <button id="6-btn" onclick="seleccionarNumero(6)">6</button>
-                        <button id="7-btn" onclick="seleccionarNumero(7)">7</button>
-                        <button id="8-btn" onclick="seleccionarNumero(8)">8</button>
-                        <button id="9-btn" onclick="seleccionarNumero(9)">9</button>
-                        <button ></button>
-                        <button id="0-btn" onclick="seleccionarNumero(0)">0</button>
-                        <button></button>
-                        <button id="start-btn" onclick="iniciarJuego()">Start</button>
-                        <button id="stop-btn" onclick="detenerJuego()">Stop</button>
-                        <button id="reset-btn" onclick="reiniciarJuego()">Reset</button>
-                    </div>
-                </td>
-            </tr>
-        </table>
+    <div class="contenedor-principal">
+
+        <!-- Fila 1: Números -->
+            <div class="contenedor-clave">
+                <div class="numero-tabla">*</div>
+                <div class="numero-tabla">*</div>
+                <div class="numero-tabla">*</div>
+                <div class="numero-tabla">*</div>
+            </div>
+                    
+        <!-- Fila 2: Contador de tiempo -->
+            <div id="contador"> 00.00.00</div>
+
+        <!-- Fila 3: Botonera -->
+            <div class="botonera-container">
+                <button id="1-btn" onclick="seleccionarNumero(1)">1</button>
+                <button id="2-btn" onclick="seleccionarNumero(2)">2</button>
+                <button id="3-btn" onclick="seleccionarNumero(3)">3</button>
+                <button id="4-btn" onclick="seleccionarNumero(4)">4</button>
+                <button id="5-btn" onclick="seleccionarNumero(5)">5</button>
+                <button id="6-btn" onclick="seleccionarNumero(6)">6</button>
+                <button id="7-btn" onclick="seleccionarNumero(7)">7</button>
+                <button id="8-btn" onclick="seleccionarNumero(8)">8</button>
+                <button id="9-btn" onclick="seleccionarNumero(9)">9</button>
+                <button ></button>
+                <button id="0-btn" onclick="seleccionarNumero(0)">0</button>
+                <button></button>
+                <button id="start-btn" onclick="iniciarJuego()">Start</button>
+                <button id="stop-btn" onclick="detenerJuego()">Stop</button>
+                <button id="reset-btn" onclick="reiniciarJuego()">Reset</button> 
+            </div>
         <br>
-    <div id = "contenedor-link">
+    <div class= "contenedor-link">
         <button id="link-practicas" onclick="redirigirAPracticas()">Todas las prácticas</button>
     </div>
 </div>
-</div>
+
 
 <script src="script.js"></script>
 </body>

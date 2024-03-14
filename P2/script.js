@@ -80,7 +80,7 @@ function actualizarContador() {
    
     // Formatear y mostrar en el elemento HTML
     const contadorElemento = document.getElementById('contador');
-    contadorElemento.textContent = `${formatoDosDigitos(minutos)}:${formatoDosDigitos(segundos)}.${formatoDosDigitos(centesimas)}`;
+    contadorElemento.textContent = `${formatoDosDigitos(minutos)}.${formatoDosDigitos(segundos)}.${formatoDosDigitos(centesimas)}`;
 }
 
 function actualizarClaveDisplay() {
