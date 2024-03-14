@@ -24,18 +24,18 @@ body {
     display: flex;
     margin-top: 15px;
     margin-bottom: 10px;
-
 }
 
 .numero-tabla {
     display: inline;
-    width: 100%; /* Ocupa todo el ancho de la celda */
-    height: 100%; /* Ocupa todo el alto de la celda */
+    width: 100%;
+    height: 100%;
     font-size: 35px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     font-weight: bold;
     color: red;
+    border: 5px rgba(233, 233, 233, 0.849);
     background-color: rgb(22, 22, 22);
     margin-left: 5px;
 }
@@ -47,6 +47,7 @@ body {
     text-align: center;
     font-weight: bold;
     color: rgb(0, 255, 0);
+    border-color: rgba(233, 233, 233, 0.849);
     background-color: rgb(22, 22, 22);
 }
 
@@ -55,6 +56,7 @@ body {
     font-size: 50px;
     font-family: 'Courier New', Courier, monospace;
     padding: 5%;
+    border: 5px rgba(233, 233, 233, 0.849);
     color: rgb(0, 255, 0);
     background-size: 20%; /* Ajusta el tamaño del fondo según tus necesidades */
     background-color: rgb(22, 22, 22);
@@ -69,6 +71,22 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
+#start-btn{
+    color: #1d1d1d;
+    background: radial-gradient(ellipse at center, #19640a, #275f25, #a7e298);
+}
+
+#stop-btn{
+    color: #1d1d1d;
+    background: radial-gradient(ellipse at center, #a71010, #923b3b, #ffaeae);
+}
+
+#reset-btn{
+    color: #1d1d1d;
+    background: radial-gradient(ellipse at center, #9c930f, #959e3f, #fffeae);
+}
+
+
 
 button {
     width: 100%;
@@ -88,15 +106,22 @@ button {
 #link-practicas{
     margin-bottom: 10px;
     font-size: 13px;
-    text-align: center; /* Opcional: Centra el texto de h5 */
-    color: rgb(45, 100, 172);
-    background: radial-gradient(ellipse at center, #3df818, #6bff66, #beffae);
+    text-align: center;
+    border-color: rgba(233, 233, 233, 0.849);
+    color: #1d1d1d;
+    background: radial-gradient(ellipse at center, #5418f8, #6966ff, #b6aeff);
     border-radius: 50%;
 }
 
 
 
+@media only screen and (max-width: 600px) {
 
+    #contenedor-principal {
+        width: 100%;
+        margin: auto;
+    }
+}
 
 
 
