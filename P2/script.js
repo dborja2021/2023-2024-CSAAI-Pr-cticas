@@ -62,6 +62,7 @@ function formatoDosDigitos(valor) {
 }
 
 function generarClaveSecreta() {
+    claveSecreta= [];
     while (claveSecreta.length < 4) {
         const numeroAleatorio = Math.floor(Math.random() * 10);
 
