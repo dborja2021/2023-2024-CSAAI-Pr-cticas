@@ -6,12 +6,21 @@
     <meta name="Ejercicio 3" content="Tiro parabólico">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <title>Canvas 01</title>
+    <title>Tiro Parabólico</title>
 </head>
 <body>
-    <h2>Canvas</h2>
+    <h2>Tiro Parabólico</h2>
     <canvas id="canvas"></canvas>
+    <br>
     <button id="disparo">¡Disparar!</button>
     <button id="inicio">Inicio</button>
+    <br>
+    <h3>Ángulo de disparo: </h3>
+    <input type="range" id="angulo" min="0" max="89" value="30">
+    <p id="angulo_valor">30</p>
+    <br>
+    <h3>Velocidad de disparo: </h3>
+    <input type="range" id="velocidad" min="5" max="15" value="5">
+    <p id="velocidad_valor">5</p>
 </body>
 </html>
