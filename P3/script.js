@@ -31,8 +31,8 @@ let angulo = anguloInput.value * Math.PI/180;
 let disparar = false;
 let xCircle = 360;
 
+let tiempoEnAire = 0;
 let tiempoVuelo = 0;
-let tiempoInicio = 0;
 
 // Agrega event listener para actualizar los valores cuando cambien los controles de rango
 anguloInput.addEventListener('input', () => {
@@ -72,18 +72,24 @@ document.getElementById("inicio").addEventListener("click",function(){
     xCircle = Math.max(200, Math.min(rawXCircle, 780));
 });
 
+
+
 // Funcion para actualizar la posicion edl cuadrado
 function update(){
-    if(disparar){
-    // Actualiza la velocidad y la posicion
-    vy += g;
-    x += vx;
-    y += vy;
 
-    // Comprobar si el cuadrado ha llegado al borde del lienzo
-    if (x < 0 || x > canvas.width - 55 || y < 0 || y > canvas.height - 55) {
-        disparar = false; // Detener el disparo
-    }
+    tiempoEnAire += 1 / 60
+
+    if(disparar){
+        // Actualiza la velocidad y la posicion
+        vy += g;
+        x += vx;
+        y += vy;
+
+        // Comprobar si el cuadrado ha llegado al borde del lienzo
+        if (x < 0 || x > canvas.width - 55 || y < 0 || y > canvas.height - 55) {
+            disparar = false; // Detener el disparo
+            tiempoVuelo = tiempoEnAire;
+        }
     }
 
     // Dibujar el cuadrado en la nueva posicion
@@ -110,10 +116,21 @@ function update(){
     // Mostrar el tiempo de vuelo
     ctx.font = "20px Arial";
     ctx.fillStyle = "black";
-    ctx.fillText("Tiempo de vuelo: " + tiempoVuelo.toFixed(2), 10, 30);
+    ctx.fillText("Tiempo de vuelo: " + tiempoEnAire.toFixed(2), 10, 30);
+
+    // Calcula la distancia entre los centros del cuadrado y el círculo
+    let distanciaCentros = calcularDistancia(xCircle, 430, x + 25, y + 25); // Sumamos 25 para obtener el centro del cuadrado
+
+    // Actualizar el elemento en el HTML para mostrar la distancia
+    document.getElementById("distancia").textContent = distanciaCentros.toFixed(2);
 
     // Solicitar el próximo cuadro de la animación
     requestAnimationFrame(update);
+}
+
+// Función para calcular la distancia
+function calcularDistancia(x, y, xCircle) {
+    return Math.sqrt(Math.pow(xCircle - x, 2) + Math.pow(430 - y, 2));
 }
 
 // Iniciar la animación
