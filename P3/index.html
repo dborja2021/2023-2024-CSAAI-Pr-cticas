@@ -11,18 +11,27 @@
 <body>
     <h2>Tiro Parabólico</h2>
     <canvas id="canvas"></canvas>
-    <h3>Distancia entre el círculo y el cuadrado:</h3>
-    <p id="distancia">0</p>
-    <br>
     <button id="disparo">¡Disparar!</button>
     <button id="inicio">Inicio</button>
     <br>
+    <h3>Distancia:</h3>
+    <p id="distancia">0</p>
+    <br>
+    <h3>Tiempo de vuelo:</h3>
+    <p id="contador">0</p>
+    <br>
+    <h3>Puntuación:</h3>
+    <p id="puntuacion">0</p>
+    <br>
+    <div class="deslizadores">
     <h3>Ángulo de disparo: </h3>
-    <input type="range" id="angulo" min="0" max="89" value="30">
     <p id="angulo_valor">30</p>
+    <input type="range" id="angulo" min="0" max="89" value="30">
     <br>
     <h3>Velocidad de disparo: </h3>
-    <input type="range" id="velocidad" min="5" max="15" value="5">
     <p id="velocidad_valor">5</p>
+    <input type="range" id="velocidad" min="5" max="15" value="5">
+    </div>
+
 </body>
 </html>
