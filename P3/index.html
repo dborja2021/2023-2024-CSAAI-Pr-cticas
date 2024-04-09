@@ -13,6 +13,7 @@
     <canvas id="canvas"></canvas>
     <button id="disparo">¡Disparar!</button>
     <button id="inicio">Inicio</button>
+    <button id = "reinicio" style = "display:none" >Volver a intentarlo</button>
     <br>
     <h3>Distancia:</h3>
     <p id="distancia">0</p>
@@ -20,17 +21,16 @@
     <h3>Tiempo de vuelo:</h3>
     <p id="contador">0</p>
     <br>
-    <h3>Puntuación:</h3>
-    <p id="puntuacion">0</p>
     <br>
     <div class="deslizadores">
-    <h3>Ángulo de disparo: </h3>
-    <p id="angulo_valor">30</p>
+    <h3>Ángulo de disparo:<p id="angulo_valor">30</p> </h3>
     <input type="range" id="angulo" min="0" max="89" value="30">
     <br>
-    <h3>Velocidad de disparo: </h3>
-    <p id="velocidad_valor">5</p>
+    <h3>Velocidad de disparo:<p id="velocidad_valor">5</p></h3>
     <input type="range" id="velocidad" min="5" max="15" value="5">
+    </div>
+    <div class= "contenedor-link">
+        <button id="link-practicas" onclick="redirigirAPracticas()">Todas las prácticas</button>
     </div>
 
 </body>
