@@ -114,7 +114,7 @@ function update(){
         y += vy;
 
         // Calcula la distancia entre los centros del cuadrado y el círculo
-        distanciaCentros = calcularDistancia(xCircle, 430, x + 25, y + 25); // Sumamos 25 para obtener el centro del cuadrado
+        distanciaCentros = calcularDistancia(xCircle, 330, x + 25, y + 25); // Sumamos 25 para obtener el centro del cuadrado
 
         // Actualizar el elemento en el HTML para mostrar la distancia
         document.getElementById("distancia").textContent = distanciaCentros.toFixed(2);
