@@ -30,11 +30,13 @@ clear: both;
 #c1 {
     background-color:#aaa;
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #c2 {
     background-color:#bbb;
     text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
