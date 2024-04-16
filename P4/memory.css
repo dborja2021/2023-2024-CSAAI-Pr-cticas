@@ -1,0 +1,146 @@
+@font-face {
+    font-family:Boongaloo ;
+    src: url(./Boogaloo-Regular.ttf);
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(325deg,  #6f00fc 0%,#fc7900 50%,#fcc700 100%); */
+    font-family: Boongaloo;
+}
+
+body{
+    font-size: 50px;
+    font-family: Boongaloo;
+    background: radial-gradient(circle, #0051ff, #00ff73);
+}
+
+.game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.controles {
+    display: flex;
+    gap: 20px;
+    background: #b6b6b8;
+    color: #00ff73;
+    border-radius: 5px;
+    padding: 10px 20px;
+    border: 0;
+    cursor: pointer;
+
+}
+
+button {    
+    font-size: 45px;
+    color: #0051ff;
+    font-family: Boongaloo;
+    cursor: pointer;
+}
+
+.disabled {
+    color: rgb(73, 89, 124);
+}
+
+.display {
+    color: #282A3A;
+    font-size: 25pt;
+}
+
+.grid-container {
+    position: relative;
+}
+
+.tablero,
+.win {
+    border-radius: 5px;
+    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
+    /* background: linear-gradient(135deg,  #6f00fc 0%,#fc7900 50%,#fcc700 100%); */
+    transition: transform .1s cubic-bezier(.17,.67,.96,.61);
+    backface-visibility: hidden;
+}
+
+.tablero{
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    padding: 20px;
+    height: 450px;
+    width: 450px;
+    background: radial-gradient(circle, #00ff73, #0051ff);
+}
+
+.grid-container.flipped .tablero {
+    transition: transform .1s cubic-bezier(.17,.67,.96,.61);
+}
+
+.grid-container.flipped .win {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.card {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: #282A3A;
+    transition: transform .3s cubic-bezier(.17,.67,.96,.61);;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    font-size: 28pt;
+    text-align: center;
+    line-height: 100px;
+    background: #FDF8E6;
+    transform: rotateY(180deg) rotateZ(50deg);
+    user-select: none;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0) rotateZ(0);
+}
+
+.win {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #FDF8E6;
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.win-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 21pt;
+    color: #282A3A;
+}
+
+.highlight {
+    color: #6f00fc;
+}
+
