@@ -35,7 +35,19 @@ body{
 
 }
 
+.dificultad button {
+    width: 100px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    font-size: 24px; /* Tamaño de la fuente del botón */
+
+}
+
+#comenzar{
+    height: 180px;
+    align-self: center;
+}
 button {    
+    height: 150px ;
     font-size: 45px;
     color: #0051ff;
     font-family: Boongaloo;
@@ -58,10 +70,10 @@ button {
 .tablero,
 .win {
     border-radius: 5px;
-    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
+    /*box-shadow: 0 25px 50px rgb(33 33 33 / 25%);*/
     /* background: linear-gradient(135deg,  #6f00fc 0%,#fc7900 50%,#fcc700 100%); */
     transition: transform .1s cubic-bezier(.17,.67,.96,.61);
-    backface-visibility: hidden;
+    /*backface-visibility: hidden;*/
 }
 
 .tablero{
@@ -127,8 +139,8 @@ button {
     width: 100%;
     height: 100%;
     text-align: center;
-    background: #FDF8E6;
     transform: rotateY(180deg) rotateZ(50deg);
+    display: none;
 }
 
 .win-text {
@@ -143,4 +155,39 @@ button {
 .highlight {
     color: #6f00fc;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 

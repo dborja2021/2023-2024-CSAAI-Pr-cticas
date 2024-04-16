@@ -10,16 +10,26 @@
         <script src="memory-game.js" defer></script>
     </head>
     <body>
+
         <div class="game">
             <div class="controles">
-                <button>COMENZAR</button>
+
+                 <div class="dificultad">
+                    <button id="'facil">Facil</button>
+                    <button id="medio">Medio</button>
+                    <button id="dificil">Dificil</button>  
+                 </div>
+
+                <button id="comenzar">COMENZAR</button>
                 <div class="display">
+                    <div id="mensaje"></div>
                     <div class="movimientos">0 movimientos</div>
                     <div class="timer">tiempo: 0 sec</div>
-                </div>
+                </div>  
             </div>
             <div class="grid-container">
                 <div class="tablero" grid-dimension="4">
+                    <!--
                     <div class="card">
                         <div class="card-front"></div>
                         <div class="card-back">🍍</div>
@@ -84,8 +94,9 @@
                         <div class="card-front"></div>
                         <div class="card-back">🍍</div>
                     </div>
+                    -->
                 </div>
-                <div class="win">¡Has Ganado!</div>
+                <div class="win"></div>
             </div>
         </div>
     </body>

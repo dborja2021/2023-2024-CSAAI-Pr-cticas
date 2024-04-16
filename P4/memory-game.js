@@ -1,9 +1,11 @@
+let lastFlippedCards = [];
+
 const selectors = {
     gridContainer: document.querySelector('.grid-container'),
     tablero: document.querySelector('.tablero'),
     movimientos: document.querySelector('.movimientos'),
     timer: document.querySelector('.timer'),
-    comenzar: document.querySelector('button'),
+    comenzar: document.getElementById('comenzar'),
     win: document.querySelector('.win')
 }
 
@@ -71,6 +73,15 @@ const shuffle = array => {
 }
 
 const iniciarJuego = () => {
+    // Cambia el texto del botón a 'Reiniciar'
+    // selectors.comenzar.textContent = 'Reiniciar';
+
+    // Elimina el evento de 'click' anterior
+    //selectors.comenzar.removeEventListener('click', iniciarJuego);
+
+    // Agrega un nuevo evento de 'click' para reiniciar el juego
+    // selectors.comenzar.addEventListener('click', reiniciarJuego);
+    
     state.gameStarted = true;
     state.loop = setInterval(() => {
         state.totalTime++;
@@ -92,26 +103,46 @@ const voltearCarta = card => {
     state.totalFlips++;
     selectors.movimientos.textContent = `${state.totalFlips} movimientos`;
 
+    lastFlippedCards.push(card);
+
     if (state.flippedCards === 2) {
         comprobarPareja();
+
+    }
+}
+
+const comprobarVictoria = () => {
+    const allCards = document.querySelectorAll('.card');
+    const matchedCards = document.querySelectorAll('.matched');
+
+    console.log('comprobando victoria' ,allCards.length, matchedCards.length);
+    
+    if (allCards.length === matchedCards.length) {
+        clearInterval(state.loop);
+        selectors.win.style.display = 'block';
+        selectors.win.textContent = `¡Felicidades! Has ganado en ${state.totalTime} segundos con ${state.totalFlips} movimientos.`;
+        console.log('FIN')
     }
 }
 
 const comprobarPareja = () => {
-    const flipped = document.querySelectorAll('.flipped');
-    const [firstCard, secondCard] = flipped;
+    const [firstCard, secondCard] = lastFlippedCards;
 
-    if (firstCard.dataset.index === secondCard.dataset.index) {
+    if (firstCard.innerHTML.trim() !== secondCard.innerHTML.trim()) {
         setTimeout(() => {
-            flipped.forEach(card => card.classList.remove('flipped'));
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
             state.flippedCards = 0;
+            lastFlippedCards = [];
         }, 1000);
     } else {
-        setTimeout(() => {
-            flipped.forEach(card => card.classList.remove('flipped'));
-            state.flippedCards = 0;
-        }, 1000);
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        state.flippedCards = 0;
+        lastFlippedCards = [];
     }
+    comprobarVictoria();
+
 }
 
 generateGame();
