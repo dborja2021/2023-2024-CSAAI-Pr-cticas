@@ -6,7 +6,10 @@ const selectors = {
     movimientos: document.querySelector('.movimientos'),
     timer: document.querySelector('.timer'),
     comenzar: document.getElementById('comenzar'),
-    win: document.querySelector('.win')
+    win: document.querySelector('.win'),
+    grid2x2: document.getElementById('facil'),
+    grid4x4: document.getElementById('medio'),
+    grid6x6: document.getElementById('dificil')
 }
 
 const state = {
@@ -14,10 +17,25 @@ const state = {
     flippedCards: 0,
     totalFlips: 0,
     totalTime: 0,
-    loop: null
+    loop: null,
+}
+selectors.tablero.style.display = 'none';
+selectors.comenzar.disabled = true;
+
+
+const buttons = document.querySelectorAll('button');
+
+function handleButtonClick(event) {
+    event.currentTarget.classList.add('button-pressed');
 }
 
+
+buttons.forEach(button => {
+    button.addEventListener('click', handleButtonClick);
+});
+
 const generateGame = () => {
+
     const dimensions = selectors.tablero.getAttribute('grid-dimension')
 
     if (dimensions % 2 !== 0) {
@@ -41,8 +59,9 @@ const generateGame = () => {
 
     const parser = new DOMParser().parseFromString(cards, 'text/html')
     selectors.tablero.replaceWith(parser.querySelector('.tablero'))
-
     selectors.comenzar.addEventListener('click', iniciarJuego)
+
+
 }
 
 const pickRandom = (array, items) => {
@@ -85,7 +104,7 @@ const iniciarJuego = () => {
     state.gameStarted = true;
     state.loop = setInterval(() => {
         state.totalTime++;
-        selectors.timer.textContent = `tiempo: ${state.totalTime} sec`;
+        selectors.timer.textContent = `tiempo: ${state.totalTime} s`;
     }, 1000);
 
     document.querySelectorAll('.card').forEach(card => {
@@ -121,7 +140,8 @@ const comprobarVictoria = () => {
         clearInterval(state.loop);
         selectors.win.style.display = 'block';
         selectors.win.textContent = `¡Felicidades! Has ganado en ${state.totalTime} segundos con ${state.totalFlips} movimientos.`;
-        console.log('FIN')
+        console.log('FIN');
+        selectors.comenzar.disabled = true;
     }
 }
 
@@ -145,4 +165,20 @@ const comprobarPareja = () => {
 
 }
 
-generateGame();
+selectors.grid2x2.addEventListener('click', function() {
+    selectors.tablero.setAttribute('grid-dimension', 2);
+    generateGame();
+    selectors.comenzar.disabled = false;
+});
+
+selectors.grid4x4.addEventListener('click', function() {
+    selectors.tablero.setAttribute('grid-dimension', 4);
+    generateGame();
+    selectors.comenzar.disabled = false;
+});
+
+selectors.grid6x6.addEventListener('click', function() {
+    selectors.tablero.setAttribute('grid-dimension', 6);
+    generateGame();
+    selectors.comenzar.disabled = false;
+});
