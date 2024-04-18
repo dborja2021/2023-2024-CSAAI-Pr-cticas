@@ -9,7 +9,8 @@ const selectors = {
     win: document.querySelector('.win'),
     grid2x2: document.getElementById('facil'),
     grid4x4: document.getElementById('medio'),
-    grid6x6: document.getElementById('dificil')
+    grid6x6: document.getElementById('dificil'),
+    reiniciar: document.getElementById('reiniciar')
 }
 
 const state = {
@@ -19,6 +20,7 @@ const state = {
     totalTime: 0,
     loop: null,
 }
+
 selectors.tablero.style.display = 'none';
 selectors.comenzar.disabled = true;
 
@@ -114,13 +116,14 @@ const iniciarJuego = () => {
             }
         });
     });
+    selectors.comenzar.disabled = true;
 }
 
 const voltearCarta = card => {
     card.classList.add('flipped');
     state.flippedCards++;
     state.totalFlips++;
-    selectors.movimientos.textContent = `${state.totalFlips} movimientos`;
+    selectors.movimientos.textContent = `movimientos: ${state.totalFlips} `;
 
     lastFlippedCards.push(card);
 
@@ -142,6 +145,8 @@ const comprobarVictoria = () => {
         selectors.win.textContent = `¡Felicidades! Has ganado en ${state.totalTime} segundos con ${state.totalFlips} movimientos.`;
         console.log('FIN');
         selectors.comenzar.disabled = true;
+        selectors.reiniciar.style.display = 'block';
+        selectors.reiniciar.addEventListener('click', reiniciarJuego);
     }
 }
 
@@ -162,8 +167,13 @@ const comprobarPareja = () => {
         lastFlippedCards = [];
     }
     comprobarVictoria();
-
 }
+
+const reiniciarJuego = () => {
+location.reload();
+}
+
+
 
 selectors.grid2x2.addEventListener('click', function() {
     selectors.tablero.setAttribute('grid-dimension', 2);
