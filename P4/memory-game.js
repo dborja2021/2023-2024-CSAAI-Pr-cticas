@@ -10,7 +10,8 @@ const selectors = {
     grid2x2: document.getElementById('facil'),
     grid4x4: document.getElementById('medio'),
     grid6x6: document.getElementById('dificil'),
-    reiniciar: document.getElementById('reiniciar')
+    reiniciar: document.getElementById('reiniciar'),
+    home: document.getElementById('home')
 }
 
 const state = {
@@ -24,13 +25,11 @@ const state = {
 selectors.tablero.style.display = 'none';
 selectors.comenzar.disabled = true;
 
-
 const buttons = document.querySelectorAll('button');
 
 function handleButtonClick(event) {
     event.currentTarget.classList.add('button-pressed');
 }
-
 
 buttons.forEach(button => {
     button.addEventListener('click', handleButtonClick);
@@ -44,7 +43,12 @@ const generateGame = () => {
         throw new Error("Las dimensiones del tablero deben ser un número par.")
     }
 
-    const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍']
+   /*const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍',
+                     '🍑', '🥝', '🥥', '🍆', '🍈', '🍊', '🍋', '🫐', '🌶️']*/
+
+    const emojis = ['🎮', '🕹️', '🎱', '🎲', '🛰️', '👾', '🤖', '📡', '💀', '🔊',
+    '💻', '🎙️', '🚀', '🛸', '🎚️', '💾', '👻', '👽', '🖥️']
+
     const picks = pickRandom(emojis, (dimensions * dimensions) / 2) 
     const items = shuffle([...picks, ...picks])
 
@@ -58,12 +62,10 @@ const generateGame = () => {
             `).join('')}
        </div>
     `
-
     const parser = new DOMParser().parseFromString(cards, 'text/html')
     selectors.tablero.replaceWith(parser.querySelector('.tablero'))
     selectors.comenzar.addEventListener('click', iniciarJuego)
-
-
+    //selectors.reiniciar.addEventListener('click', reiniciarJuego);
 }
 
 const pickRandom = (array, items) => {
@@ -75,7 +77,6 @@ const pickRandom = (array, items) => {
         randomPicks.push(clonedArray[randomIndex])
         clonedArray.splice(randomIndex, 1)
     }
-
     return randomPicks
 }
 
@@ -93,16 +94,7 @@ const shuffle = array => {
     return clonedArray
 }
 
-const iniciarJuego = () => {
-    // Cambia el texto del botón a 'Reiniciar'
-    // selectors.comenzar.textContent = 'Reiniciar';
-
-    // Elimina el evento de 'click' anterior
-    //selectors.comenzar.removeEventListener('click', iniciarJuego);
-
-    // Agrega un nuevo evento de 'click' para reiniciar el juego
-    // selectors.comenzar.addEventListener('click', reiniciarJuego);
-    
+const iniciarJuego = () => {   
     state.gameStarted = true;
     state.loop = setInterval(() => {
         state.totalTime++;
@@ -117,9 +109,11 @@ const iniciarJuego = () => {
         });
     });
     selectors.comenzar.disabled = true;
+    console.log("JUGANDO")
 }
 
 const voltearCarta = card => {
+// PROblEmA AQUI
     card.classList.add('flipped');
     state.flippedCards++;
     state.totalFlips++;
@@ -145,8 +139,6 @@ const comprobarVictoria = () => {
         selectors.win.textContent = `¡Felicidades! Has ganado en ${state.totalTime} segundos con ${state.totalFlips} movimientos.`;
         console.log('FIN');
         selectors.comenzar.disabled = true;
-        selectors.reiniciar.style.display = 'block';
-        selectors.reiniciar.addEventListener('click', reiniciarJuego);
     }
 }
 
@@ -169,26 +161,35 @@ const comprobarPareja = () => {
     comprobarVictoria();
 }
 
-const reiniciarJuego = () => {
-location.reload();
+selectors.reiniciar.addEventListener('click', function(){
+    location.reload();
+});
+
+selectors.home.addEventListener('click', function(){
+    location.href ='https://dborja2021.github.io/2023-2024-CSAAI-Practicas/';
+});
+
+const seleccionDificultad = () => {
+    selectors.grid2x2.addEventListener('click', function() {
+        selectors.tablero.setAttribute('grid-dimension', 2);
+        generateGame();
+        selectors.comenzar.disabled = false;
+        console.log("FACIL")
+    });
+
+    selectors.grid4x4.addEventListener('click', function() {
+        selectors.tablero.setAttribute('grid-dimension', 4);
+        generateGame();
+        selectors.comenzar.disabled = false;
+        console.log("MEDIO")
+    });
+
+    selectors.grid6x6.addEventListener('click', function() {
+        selectors.tablero.setAttribute('grid-dimension', 6);
+        generateGame();
+        selectors.comenzar.disabled = false;
+        console.log("DIFICIL")
+    });
 }
 
-
-
-selectors.grid2x2.addEventListener('click', function() {
-    selectors.tablero.setAttribute('grid-dimension', 2);
-    generateGame();
-    selectors.comenzar.disabled = false;
-});
-
-selectors.grid4x4.addEventListener('click', function() {
-    selectors.tablero.setAttribute('grid-dimension', 4);
-    generateGame();
-    selectors.comenzar.disabled = false;
-});
-
-selectors.grid6x6.addEventListener('click', function() {
-    selectors.tablero.setAttribute('grid-dimension', 6);
-    generateGame();
-    selectors.comenzar.disabled = false;
-});
+seleccionDificultad();
