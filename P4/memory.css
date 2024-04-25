@@ -354,67 +354,164 @@ button:active {
     text-decoration: none;
     cursor: pointer;
 }
-
-@media (max-width: 480px) {
+/*
+@media (max-width: 600px) {
     body {
-        font-size: 18px; /* Reducir el tamaño de la fuente para móviles */
+        font-size: 18px; 
         justify-content: center;
     }
-
     button {
-        font-size: 14px; /* Reducir el tamaño de la fuente de los botones */
-        padding: 5px 10px; /* Reducir el padding para disminuir el tamaño total */
-        width: auto; /* Ajustar el ancho para que sea proporcional al contenido */
+        font-size: 14px; 
+        padding: 5px 10px; 
+        width: auto; 
         justify-content: center;
         
     }
 
     .dificultad button {
-        width: 80px; /* Reducir el ancho del botón */
-        height: 20px; /* Reducir el alto del botón */
+        width: 80px; 
+        height: 20px; 
         margin: 10px;
         padding-bottom: 25px;
     }
 
     #comenzar {
-        height: 100px; /* Reducir el alto del botón comenzar */
-        font-size: 14px; /* Reducir el tamaño de la fuente del botón comenzar */
+        height: 100px; 
+        font-size: 14px; 
     }  
 
     .game, .controles, .dificultad button, #comenzar, button {
-        font-size: 16px; /* Reducir el tamaño de la fuente de los elementos */
+        font-size: 16px; 
     }
 
     .card {
-        width: 60px; /* Reducir el tamaño de las tarjetas para que quepan en la pantalla */
+        width: 60px; 
         height: 60px;
         justify-content: center;
         align-items: center;
     }
     .card-front,
     .card-back {
-        /* Estilos existentes */
-        display: flex; /* Establece el contenedor como un flexbox */
-        justify-content: center; /* Centra el contenido horizontalmente */
-        align-items: center; /* Centra el contenido verticalmente */
-        text-align: center; /* Asegura que el texto dentro del flexbox esté centrado */
-        /* ... */
+        
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
+
 }
 
     .tablero {
-        grid-template-columns: repeat(6, auto); /* Ajustar la disposición del grid para menos columnas */
+        grid-template-columns: repeat(6, auto); 
     }
 
     .win-text {
-        font-size: 14pt; /* Reducir el tamaño de la fuente del texto de victoria */
+        font-size: 14pt; 
     }
 
     .modal-content {
-        margin: 5% auto; /* Ajustar el margen para centrar el modal */
-        width: 95%; /* Ajustar el ancho para que ocupe casi toda la pantalla */
+        margin: 5% auto; 
+        width: 95%; 
     }
 
     .close {
-        font-size: 22px; /* Reducir el tamaño del botón cerrar */
+        font-size: 22px; 
+    }
+}
+*/
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 30px;
+    }
+    .game {
+        transform: scale(0.8);
+    }
+    .controles {
+        flex-wrap: wrap;
+    }
+    .dificultad button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    #comenzar, #reiniciar {
+        height: 100px;
+        font-size: 25px;
+    }
+    button {
+        font-size: 35px;
+    }
+
+    .movimientos, .timer {
+        font-size: 18px;
+    }
+    .grid-container {
+        flex-direction: column;
+    }
+    .tablero {
+        grid-template-columns: repeat(2, auto);
+    }
+    .card {
+        width: 75px;
+        height: 75px;
+    }
+    .card-back {
+        font-size: 21pt;
+    }
+    .win {
+        width: 375px;
+        height: 187.5px;
+        font-size: 26px;
+    }
+    .win-text {
+        font-size: 16pt;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    body {
+        font-size: 20px;
+    }
+    .game {
+        transform: scale(0.6);
+    }
+    .controles {
+        flex-direction: column;
+    }
+    .dificultad button {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    #comenzar, #reiniciar {
+        height: 75px;
+        font-size: 20px;
+    }
+    button {
+        font-size: 25px;
+    }
+
+    .movimientos, .timer {
+        font-size: 14px;
+    }
+    .grid-container {
+        flex-direction: column;
+    }
+    .tablero {
+        grid-template-columns: repeat(2, auto);
+    }
+    .card {
+        width: 50px;
+        height: 50px;
+    }
+    .card-back {
+        font-size: 14pt;
+    }
+    .win {
+        width: 250px;
+        height: 125px;
+        font-size: 18px;
+    }
+    .win-text {
+        font-size: 12pt;
     }
 }
