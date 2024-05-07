@@ -1,0 +1,90 @@
+@font-face {
+  font-family:RedditSans ;
+  src: url(./RedditSansCondensed-VariableFont_wght.ttf);
+}
+
+body{
+  background-image: url("fondo.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+canvas {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgba(116, 116, 116, 0.683);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+
+  }
+  
+  .controls {
+    font-family: RedditSans;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+
+  }
+
+  .display{
+    border: 1px solid black;
+    background-color: rgba(116, 116, 116, 0.683);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    height: 300px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: RedditSans;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+
+  }
+  
+  button {
+    font-family: RedditSans;
+    display: inline;
+    width: inherit;
+    height: 75px;
+    background: #282A3A;
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 10px 20px;
+    border: 0;
+    cursor: pointer;
+    font-size: 18pt;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.7);
+    transform: translateZ(0);
+  }
+
+  button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 1);
+  }
+
+  .nodo-ruta-minima{
+    fill: green;
+    stroke: black;
+  }
+
+  #home{
+    background-image: url(casa.png);
+    background-repeat:no-repeat;
+    align-items: rigth;
+    background-size: auto;
+    background-position:center;
+    width: 30p;
+    height: 30px;
+    margin-left: 350px;
+    background-size: auto;
+    background-position:center;
+}
