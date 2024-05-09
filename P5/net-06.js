@@ -215,7 +215,7 @@ function drawNet(nnodes) {
         ctx.lineTo(conexion.x, conexion.y);
         ctx.stroke();
   
-        ctx.font = '14px Arial';
+        ctx.font = '18px';
         ctx.fillStyle = 'black';
         ctx.textAlign = 'center';
         pw = "N" + nodo.id + " pw " + peso;
@@ -235,7 +235,7 @@ function drawNet(nnodes) {
       ctx.fillStyle = nodo.color || 'blue';
       ctx.fill();
       ctx.stroke();
-      ctx.font = '12px Arial';
+      ctx.font = '12px';
       ctx.fillStyle = 'white';
       ctx.textAlign = 'center';
       nodoDesc = "N" + nodo.id + " delay " + Math.floor(nodo.delay);

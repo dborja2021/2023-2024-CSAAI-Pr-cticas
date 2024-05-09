@@ -16,6 +16,7 @@ body{
 }
 
 canvas {
+    font-family: RedditSans;
     border: 1px solid black;
     border-radius: 5px;
     background-color: rgba(116, 116, 116, 0.683);
@@ -79,12 +80,28 @@ canvas {
   #home{
     background-image: url(casa.png);
     background-repeat:no-repeat;
-    align-items: rigth;
     background-size: auto;
     background-position:center;
-    width: 30p;
+    width: 30px;
     height: 30px;
     margin-left: 350px;
     background-size: auto;
     background-position:center;
+}
+
+@media (max-width: 600px) {
+body{
+  font-size: 70%;
+}
+button{
+  width: 70%;
+  height: 70%;
+  margin:0;
+  }
+#home{
+  margin:20px;
+}
+.controls{
+  display: line;
+}
 }
